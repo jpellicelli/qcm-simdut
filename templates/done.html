@@ -1,0 +1,31 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résultats</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>
+  :root{--pad:clamp(10px,3vw,24px);--w:clamp(320px,96vw,1000px);--cardp:clamp(10px,2.5vw,18px)}
+  body{margin:var(--pad) auto;max-width:var(--w)}
+  .ok{color:green}.ko{color:#c00}
+  .card{border:1px solid #e3e3e3;padding:var(--cardp);border-radius:12px;margin-bottom:clamp(10px,2.5vw,18px);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .meta{color:#666;font-size:.9rem;margin:.2rem 0 .6rem}
+  .btns a{display:inline-block;margin-right:8px}
+</style></head><body>
+<h3>Résultat du quiz</h3>
+<p><strong>Nom:</strong> {{student.nom}} — <strong>Matricule:</strong> {{student.matricule}}</p>
+<p><strong>Score :</strong> {{score}} / {{total}} ({{percent}}%)</p>
+<h4>Corrigé</h4>
+{% for d in details %}
+  <div class="card">
+    <p class="meta">Section {{d.section}}</p>
+    <p><strong>{{loop.index}}. {{d.question}}</strong></p>
+    {% if d.is_correct %}
+      <p class="ok">✅ Votre réponse : {{d.given_vis}}) {{d.given_text}}</p>
+    {% else %}
+      <p class="ko">❌ Votre réponse : {{d.given_vis}}) {{d.given_text}}</p>
+      <p class="ok">✔️ Bonne réponse : {{d.correct_vis}}) {{d.correct_text}}</p>
+    {% endif %}
+    {% if d.rationale %}<p><em>Justification :</em> {{d.rationale}}</p>{% endif %}
+  </div>
+{% endfor %}
+<p class="btns"><a href="{{url_for('index')}}" class="button">Recommencer</a></p>
+</body></html>

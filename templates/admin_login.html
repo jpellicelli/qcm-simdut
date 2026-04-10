@@ -1,0 +1,12 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><title>Espace enseignant</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>body{max-width:650px;margin:3rem auto}</style></head><body>
+<h3>Espace enseignant — Connexion</h3>
+{% with messages = get_flashed_messages() %}{% if messages %}<div>{% for m in messages %}<p style="color:red">{{m}}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<form method="post">
+  <label>Mot de passe</label><input type="password" name="password" required>
+  <button type="submit" class="button">Se connecter</button>
+</form>
+<p><a href="{{url_for('index')}}">Retour au quiz</a></p>
+</body></html>

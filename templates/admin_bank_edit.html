@@ -1,0 +1,26 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><title>{% if mode=='new' %}Nouvelle{% else %}Éditer{% endif %} question</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>body{max-width:900px;margin:2rem auto}</style></head><body>
+<h3>{% if mode=='new' %}Nouvelle{% else %}Éditer{% endif %} question</h3>
+{% with messages = get_flashed_messages() %}{% if messages %}<div>{% for m in messages %}<p style="color:red">{{m}}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<form method="post">
+{% if mode=='new' %}
+<label>ID</label><input type="number" name="id" required>
+{% endif %}
+<label>Section (A/B/C)</label><input name="section" value="{{q.section if q}}" required>
+<label>Question</label><textarea name="question" rows="3" required>{{q.question if q}}</textarea>
+<div class="row">
+  <div class="column"><label>A</label><input name="A" value="{{q.choices.A if q}}" required></div>
+  <div class="column"><label>B</label><input name="B" value="{{q.choices.B if q}}" required></div>
+</div>
+<div class="row">
+  <div class="column"><label>C</label><input name="C" value="{{q.choices.C if q}}" required></div>
+  <div class="column"><label>D</label><input name="D" value="{{q.choices.D if q}}" required></div>
+</div>
+<label>Réponse (A/B/C/D)</label><input name="answer" value="{{q.answer if q}}" required>
+<label>Justification (optionnel)</label><textarea name="rationale" rows="3">{{q.rationale if q}}</textarea>
+<button type="submit" class="button">Sauvegarder</button>
+<a class="button button-outline" href="{{url_for('admin_bank')}}">Annuler</a>
+</form>
+</body></html>

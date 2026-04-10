@@ -1,0 +1,30 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>
+  :root{--pad:clamp(10px,3vw,24px);--w:clamp(320px,96vw,950px);--cardp:clamp(10px,2.5vw,18px)}
+  body{margin:var(--pad) auto;max-width:var(--w)}
+  .q{border:1px solid #e3e3e3;padding:var(--cardp);border-radius:12px;margin-bottom:clamp(10px,2.5vw,18px);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .q strong{line-height:1.35}
+  .opt{display:flex;gap:10px;align-items:flex-start;padding:8px 6px;border-radius:10px}
+  .opt input{margin-top:4px;transform:scale(1.15)}
+  @media (hover:hover){ .opt:hover{background:#f7f7f7} }
+  .meta{color:#666;font-size:.9rem;margin:.2rem 0 .6rem}
+  button{width:100%;padding:12px 16px}
+</style></head><body>
+<h3>Quiz Sécurité / SIMDUT / Environnement</h3>
+<p><strong>Nom:</strong> {{student.nom}} — <strong>Matricule:</strong> {{student.matricule}}</p>
+<form action="{{url_for('submit')}}" method="post">
+{% for q in questions %}
+  <div class="q">
+    <p class="meta">Section {{q.section}}</p>
+    <p><strong>{{loop.index}}. {{q.question}}</strong></p>
+    {% for opt in q.visible %}
+      <label class="opt"><input type="radio" name="q_{{q.id}}" value="{{opt.label}}" required> <span>{{opt.label}}) {{opt.text}}</span></label>
+    {% endfor %}
+  </div>
+{% endfor %}
+<button type="submit" class="button button-outline">Soumettre</button>
+</form>
+</body></html>

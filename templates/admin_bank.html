@@ -1,0 +1,33 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><title>Banque de questions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>body{max-width:1100px;margin:2rem auto} table{width:100%}</style></head><body>
+<h3>Banque de questions</h3>
+<p>
+  <a class="button" href="{{url_for('admin_bank_new')}}">➕ Nouvelle question</a>
+  <a class="button button-outline" href="{{url_for('admin_dashboard')}}">⬅ Retour</a>
+</p>
+<table>
+  <thead><tr><th>ID</th><th>Sec.</th><th>Question</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Réponse</th><th>Actions</th></tr></thead>
+  <tbody>
+  {% for q in bank %}
+    <tr>
+      <td>{{q.id}}</td>
+      <td>{{q.section}}</td>
+      <td>{{q.question}}</td>
+      <td>{{q.choices.A}}</td>
+      <td>{{q.choices.B}}</td>
+      <td>{{q.choices.C}}</td>
+      <td>{{q.choices.D}}</td>
+      <td>{{q.answer}}</td>
+      <td>
+        <a class="button" href="{{url_for('admin_bank_edit', qid=q.id)}}">Éditer</a>
+        <form style="display:inline" method="post" action="{{url_for('admin_bank_delete', qid=q.id)}}" onsubmit="return confirm('Supprimer la question {{q.id}} ?')">
+          <button class="button button-outline" type="submit">Supprimer</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body></html>

@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz SIMDUT</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+<style>
+  :root{--pad:clamp(12px,3vw,24px);--w:clamp(320px,96vw,900px)}
+  body{margin:var(--pad) auto;max-width:var(--w)}
+  label{font-weight:600}
+</style></head><body>
+<h2>QCM Sécurité / SIMDUT / Environnement</h2>
+{% with messages = get_flashed_messages() %}{% if messages %}<div>{% for m in messages %}<p style="color:red">{{m}}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<form action="{{url_for('start')}}" method="post">
+  <label>Nom</label><input name="nom" required>
+  <label>Matricule</label><input name="matricule" required>
+  <button type="submit" class="button">Commencer</button>
+</form>
+<p style="margin-top:12px"><a href="{{url_for('admin_login')}}">Espace enseignant</a></p>
+</body></html>

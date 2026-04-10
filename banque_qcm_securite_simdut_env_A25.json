@@ -1,0 +1,509 @@
+[
+  {
+    "id": 1,
+    "section": "A",
+    "question": "Quel est l'équipement obligatoire en tout temps au laboratoire?",
+    "choices": {
+      "A": "Sarrau et lunettes de sécurité",
+      "B": "Casque de chantier",
+      "C": "Gants de laine",
+      "D": "Masque N95 en tout temps"
+    },
+    "answer": "A",
+    "rationale": "Le sarrau et les lunettes avec protecteurs latéraux sont requis en tout temps."
+  },
+  {
+    "id": 2,
+    "section": "A",
+    "question": "Le port de lentilles cornéennes au laboratoire est :",
+    "choices": {
+      "A": "Obligatoire",
+      "B": "Toléré",
+      "C": "Interdit",
+      "D": "Recommandé"
+    },
+    "answer": "C",
+    "rationale": "Le guide interdit les lentilles cornéennes pour des raisons de sécurité."
+  },
+  {
+    "id": 3,
+    "section": "A",
+    "question": "Que faut-il faire après avoir manipulé des produits chimiques?",
+    "choices": {
+      "A": "Se laver les mains",
+      "B": "Secouer les gants",
+      "C": "Ranger les gants dans les poches",
+      "D": "Rien de particulier"
+    },
+    "answer": "A",
+    "rationale": "Le lavage des mains fait partie des règles de propreté."
+  },
+  {
+    "id": 4,
+    "section": "A",
+    "question": "Que fait-on si du produit granuleux tombe sur la balance?",
+    "choices": {
+      "A": "On ignore",
+      "B": "On souffle dessus",
+      "C": "On nettoie immédiatement la balance",
+      "D": "On attend la fin du labo"
+    },
+    "answer": "C",
+    "rationale": "La propreté des balances est obligatoire pour éviter la contamination et garder la précision des balances."
+  },
+  {
+    "id": 5,
+    "section": "A",
+    "question": "Peut-on manger ou boire au laboratoire?",
+    "choices": {
+      "A": "Oui, loin des comptoirs",
+      "B": "Oui, si c’est de l’eau",
+      "C": "Non",
+      "D": "Seulement pendant la pause"
+    },
+    "answer": "C",
+    "rationale": "Il est interdit de boire et manger au laboratoire."
+  },
+  {
+    "id": 6,
+    "section": "A",
+    "question": "Où s’assoit-on pendant les étapes de rédaction?",
+    "choices": {
+      "A": "Sur les comptoirs",
+      "B": "Sur un banc rangé",
+      "C": "Par terre",
+      "D": "N’importe où"
+    },
+    "answer": "B",
+    "rationale": "Ne pas s’asseoir sur les comptoirs; les bancs doivent être rangés lorsqu’inutilisés."
+  },
+  {
+    "id": 7,
+    "section": "A",
+    "question": "Avant de quitter le laboratoire, on doit :",
+    "choices": {
+      "A": "Signer la feuille de présence",
+      "B": "Faire valider le travail, nettoyer et se laver les mains",
+      "C": "Éteindre les lumières",
+      "D": "Rien"
+    },
+    "answer": "B",
+    "rationale": "Quitter uniquement après validation et nettoyage complet."
+  },
+  {
+    "id": 8,
+    "section": "A",
+    "question": "Que doit-on faire pour libérer les allées?",
+    "choices": {
+      "A": "Laisser les tiroirs ouverts",
+      "B": "Plier et ranger les bancs, fermer les tiroirs",
+      "C": "Mettre les sacs au sol",
+      "D": "Rien"
+    },
+    "answer": "B",
+    "rationale": "Les allées doivent être dégagées (tiroirs fermés, bancs rangés)."
+  },
+  {
+    "id": 9,
+    "section": "A",
+    "question": "Comment sentir prudemment un produit chimique?",
+    "choices": {
+      "A": "Respirer au-dessus du flacon",
+      "B": "Agiter la main pour amener l’air au nez",
+      "C": "Mettre le nez dans le flacon",
+      "D": "Inhaler brièvement"
+    },
+    "answer": "B",
+    "rationale": "On amène l’air vers les narines avec la main."
+  },
+  {
+    "id": 10,
+    "section": "A",
+    "question": "En cas d’éclaboussure chimique à l’œil :",
+    "choices": {
+      "A": "Compresse froide 2 minutes",
+      "B": "Rincer à la douche oculaire 15 minutes",
+      "C": "Attendre le prof",
+      "D": "Fermer l’œil"
+    },
+    "answer": "B",
+    "rationale": "Douche oculaire pendant 15 minutes puis aviser la personne responsable."
+  },
+  {
+    "id": 11,
+    "section": "A",
+    "question": "Que fait-on d’un contenant non identifié trouvé sur un comptoir?",
+    "choices": {
+      "A": "On le goûte",
+      "B": "On le sent",
+      "C": "On s’en méfie et on avertit le responsable",
+      "D": "On le jette dans l’évier"
+    },
+    "answer": "C",
+    "rationale": "Ne jamais utiliser un produit non identifié; avertir un responsable."
+  },
+  {
+    "id": 12,
+    "section": "A",
+    "question": "Peut-on improviser des manipulations non prévues à l’horaire?",
+    "choices": {
+      "A": "Oui, si prudent",
+      "B": "Oui, pour gagner du temps",
+      "C": "Non",
+      "D": "Oui, si le matériel est libre"
+    },
+    "answer": "C",
+    "rationale": "On s’en tient à l’expérience prévue."
+  },
+  {
+    "id": 13,
+    "section": "A",
+    "question": "Tenue vestimentaire minimale :",
+    "choices": {
+      "A": "Pantalons longs, bas couvrant les chevilles, souliers fermés",
+      "B": "Shorts et sandales",
+      "C": "Bottes de pluie",
+      "D": "Gougoune et bas courts"
+    },
+    "answer": "A",
+    "rationale": "Protection complète de la peau requise (chevilles couvertes)."
+  },
+  {
+    "id": 14,
+    "section": "A",
+    "question": "Que faire en cas de brûlure par un objet chaud ?",
+    "choices": {
+      "A": "Mettre de la crème",
+      "B": "Compresse froide 10 minutes / eau froide",
+      "C": "Percer l’ampoule",
+      "D": "Ignorer"
+    },
+    "answer": "B",
+    "rationale": "Refroidissement immédiat 10 minutes."
+  },
+  {
+    "id": 15,
+    "section": "A",
+    "question": "Doit-on identifier tous les contenants de substances?",
+    "choices": {
+      "A": "Non",
+      "B": "Seulement les acides",
+      "C": "Oui",
+      "D": "Seulement les solvants"
+    },
+    "answer": "C",
+    "rationale": "Tous les contenants doivent être identifiés."
+  },
+  {
+    "id": 16,
+    "section": "A",
+    "question": "Quand peut-on transporter des équipements chauds ou produits dangereux?",
+    "choices": {
+      "A": "Quand la circulation est élevée et criant chaud devant",
+      "B": "Éviter les périodes de forte circulation",
+      "C": "Toujours",
+      "D": "Jamais"
+    },
+    "answer": "B",
+    "rationale": "Limiter le transport lorsque la circulation est élevée."
+  },
+  {
+    "id": 17,
+    "section": "A",
+    "question": "Qui avertir en cas de blessure, même bénigne?",
+    "choices": {
+      "A": "Personne",
+      "B": "Un ami",
+      "C": "La personne responsable du labo",
+      "D": "Les rapi-secours seulement"
+    },
+    "answer": "C",
+    "rationale": "Toujours avertir la personne responsable."
+  },
+  {
+    "id": 18,
+    "section": "A",
+    "question": "Que faire des cheveux longs?",
+    "choices": {
+      "A": "Rien",
+      "B": "Les attacher",
+      "C": "Les coiffer",
+      "D": "Les mettre sous le sarrau"
+    },
+    "answer": "B",
+    "rationale": "Les cheveux longs doivent être attachés."
+  },
+  {
+    "id": 19,
+    "section": "B",
+    "question": "Sous quel onglet d’une fiche signalitique trouve-t-on la température d’ébullition?",
+    "choices": {
+      "A": "Identification",
+      "B": "Propriétés physiques et chimiques",
+      "C": "Données toxicologiques",
+      "D": "Stabilité et réactivité"
+    },
+    "answer": "B",
+    "rationale": "Les propriétés physiques (dont Téb) sont à l’onglet Propriétés physiques et chimiques."
+  },
+  {
+    "id": 20,
+    "section": "B",
+    "question": "Sous quel onglet d’une fiche signalitique trouve-t-on les dangers (pictogrammes, mentions)?",
+    "choices": {
+      "A": "Identification",
+      "B": "Réactivité",
+      "C": "Identification des dangers",
+      "D": "Transport"
+    },
+    "answer": "C",
+    "rationale": "Section 2 : Identification des dangers."
+  },
+  {
+    "id": 21,
+    "section": "B",
+    "question": "Avant d’utiliser un produit, il faut :",
+    "choices": {
+      "A": "Consulter la fiche signalitique à jour",
+      "B": "Regarder la couleur",
+      "C": "Secouer le flacon",
+      "D": "L’ouvrir et sentir"
+    },
+    "answer": "A",
+    "rationale": "Toujours consulter la fiche la plus récente et correspondant à la concentration."
+  },
+  {
+    "id": 22,
+    "section": "B",
+    "question": "Que faire d’un excès de réactif prélevé par erreur?",
+    "choices": {
+      "A": "Le remettre dans le pot d’origine",
+      "B": "Le laisser pour un autre groupe",
+      "C": "L’éliminer selon sa dangerosité",
+      "D": "Le verser dans l’évier systématiquement"
+    },
+    "answer": "C",
+    "rationale": "Ne jamais réintroduire dans le contenant d’origine; disposer correctement."
+  },
+  {
+    "id": 23,
+    "section": "B",
+    "question": "Quel mode d’absorption n’est PAS considéré en labo (normalement)?",
+    "choices": {
+      "A": "Cutanée",
+      "B": "Inhalation",
+      "C": "Ingestion",
+      "D": "Toutes sont considérées"
+    },
+    "answer": "C",
+    "rationale": "On ne mange pas en labo; cutané et inhalation priment."
+  },
+  {
+    "id": 24,
+    "section": "B",
+    "question": "Pour éviter les mélanges dangereux dans les bacs à déchets, on consulte :",
+    "choices": {
+      "A": "Section 10 — Stabilité et réactivité",
+      "B": "Section 5 — Lutte incendie",
+      "C": "Section 8 — Contrôle exposition",
+      "D": "Section 12 — Écologie"
+    },
+    "answer": "A",
+    "rationale": "Incompatibilités et réactivité : section 10."
+  },
+  {
+    "id": 25,
+    "section": "B",
+    "question": "Quel énoncé est vrai à propos des fiches signalitiques ?",
+    "choices": {
+      "A": "Toujours choisir la plus ancienne",
+      "B": "Choisir une fiche correspondante à la concentration et récente",
+      "C": "Les fiches signalitiques sont identiques pour toutes les marques",
+      "D": "Inutiles en enseignement"
+    },
+    "answer": "B",
+    "rationale": "Choisir la version récente et la bonne concentration."
+  },
+  {
+    "id": 26,
+    "section": "B",
+    "question": "Quel pictogramme indique un comburant ?",
+    "choices": {
+      "A": "Flamme sur cercle",
+      "B": "Bombe explosante",
+      "C": "Point d’exclamation",
+      "D": "Silhouette santé"
+    },
+    "answer": "A",
+    "rationale": "La flamme sur un cercle = comburant."
+  },
+  {
+    "id": 27,
+    "section": "B",
+    "question": "Quel document québécois offre des fiches synthèses pédagogiques ?",
+    "choices": {
+      "A": "Fournisseur de produits Fisher Scientific",
+      "B": "REPTOX (CNESST)",
+      "C": "Wikipedia",
+      "D": "USP-NF"
+    },
+    "answer": "B",
+    "rationale": "Le Répertoire toxicologique CNESST (REPTOX)."
+  },
+  {
+    "id": 28,
+    "section": "B",
+    "question": "Quel réflexe adopter si on n’a pas la fiche signalitique d’un produit donné?",
+    "choices": {
+      "A": "Utiliser quand même",
+      "B": "Chercher une fiche synthèse CNESST/VEGA pour une substance équivalente",
+      "C": "Remplacer par un autre produit",
+      "D": "Deviner les risques"
+    },
+    "answer": "B",
+    "rationale": "Consulter VEGA ou CNESST pour une source fiable."
+  },
+  {
+    "id": 29,
+    "section": "C",
+    "question": "Quelle est la meilleure stratégie pour réduire les déchets chimiques?",
+    "choices": {
+      "A": "Diluer tout à l’évier",
+      "B": "Prélever le minimum nécessaire",
+      "C": "Tout récupérer systématiquement",
+      "D": "Brûler les solvants"
+    },
+    "answer": "B",
+    "rationale": "La réduction à la source est prioritaire."
+  },
+  {
+    "id": 30,
+    "section": "C",
+    "question": "Les acides ou bases très dilués (≤ 0,100 mol/L) peuvent :",
+    "choices": {
+      "A": "Être rejetés à l’évier avec rinçage",
+      "B": "Toujours être récupérés",
+      "C": "Être jetés à la poubelle",
+      "D": "Être neutralisés par des solvants"
+    },
+    "answer": "A",
+    "rationale": "Tolérés à l’évier avec grand débit d’eau (local spécifique)."
+  },
+  {
+    "id": 31,
+    "section": "C",
+    "question": "Pourquoi ne remet-on jamais un excès dans le contenant d’origine?",
+    "choices": {
+      "A": "Pour éviter la contamination",
+      "B": "Pour économiser",
+      "C": "Pour remplir",
+      "D": "Par habitude"
+    },
+    "answer": "A",
+    "rationale": "Risque de contamination du lot."
+  },
+  {
+    "id": 32,
+    "section": "C",
+    "question": "Les déchets organiques halogénés doivent :",
+    "choices": {
+      "A": "Être mélangés à tout",
+      "B": "Être séparés des autres organiques",
+      "C": "Être jetés à la poubelle",
+      "D": "Aller à l’évier"
+    },
+    "answer": "B",
+    "rationale": "Séparation halogénés / non-halogénés."
+  },
+  {
+    "id": 33,
+    "section": "C",
+    "question": "Un colorant alimentaire dilué sans danger va :",
+    "choices": {
+      "A": "Dans le bac halogéné",
+      "B": "Dans l’évier",
+      "C": "À la poubelle",
+      "D": "À la récupération toxique"
+    },
+    "answer": "B",
+    "rationale": "Liquide non dangereux → évier."
+  },
+  {
+    "id": 34,
+    "section": "C",
+    "question": "Le sable propre solide va :",
+    "choices": {
+      "A": "Évier",
+      "B": "Poubelle",
+      "C": "Récupération",
+      "D": "Halogéné"
+    },
+    "answer": "B",
+    "rationale": "Solide non dangereux → poubelle."
+  },
+  {
+    "id": 35,
+    "section": "C",
+    "question": "Pourquoi limiter le rejet de substances dangereuses à l’évier?",
+    "choices": {
+      "A": "L’usine traite tout",
+      "B": "Certaines substances ne sont pas éliminées par l’usine",
+      "C": "Parce que c’est lent",
+      "D": "Pour économiser l’eau"
+    },
+    "answer": "B",
+    "rationale": "Certaines substances (p.ex. métaux lourds) ne sont pas traitées."
+  },
+  {
+    "id": 36,
+    "section": "C",
+    "question": "Qui contacter en cas de doute sur la disposition d’un déchet?",
+    "choices": {
+      "A": "CNESST / personne compétente",
+      "B": "Internet sur google",
+      "C": "Aucun",
+      "D": "Un ami"
+    },
+    "answer": "A",
+    "rationale": "Toujours demander à une personne compétente ou consulter CNESST."
+  },
+  {
+    "id": 37,
+    "section": "C",
+    "question": "Exemple de liquide non dangereux :",
+    "choices": {
+      "A": "Solution d’acide fort concentrée",
+      "B": "Colorant alimentaire dilué",
+      "C": "Solvant chloré",
+      "D": "Solution de Cr(VI)"
+    },
+    "answer": "B",
+    "rationale": "Colorant alimentaire dilué peut aller à l’évier."
+  },
+  {
+    "id": 38,
+    "section": "C",
+    "question": "Exemple de matière inflammable :",
+    "choices": {
+      "A": "Eau",
+      "B": "Éthanol",
+      "C": "Sel",
+      "D": "Saccharose solide"
+    },
+    "answer": "B",
+    "rationale": "L’éthanol est inflammable."
+  },
+  {
+    "id": 39,
+    "section": "C",
+    "question": "Pourquoi séparer halogénés et non-halogénés dans les solvants organiques?",
+    "choices": {
+      "A": "Parce que ce que ça permet d'avoir des plus petits volumes de déchets",
+      "B": "Parce qu'ils ont des procédés de traitement diffèrent",
+      "C": "Pour économiser des bacs",
+      "D": "Pour mélanger avec l’eau"
+    },
+    "answer": "B",
+    "rationale": "Les procédés et coûts de traitement diffèrent."
+  }
+]
