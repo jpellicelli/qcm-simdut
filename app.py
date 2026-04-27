@@ -4,9 +4,26 @@ from pathlib import Path
 from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash
 
 APP_DIR = Path(__file__).resolve().parent
-BANK_FILE = APP_DIR / "banque_qcm_securite_simdut_env_A25.json"
-BACKUP_DIR = APP_DIR / "backups"
-CSV_FILE  = APP_DIR / "resultats_qcm.csv"
+
+# 1. Définir le chemin de stockage selon l'environnement
+# Render crée automatiquement une variable d'environnement RENDER=true
+if os.environ.get("RENDER"):
+    DATA_DIR = Path("/var/data")
+else:
+    DATA_DIR = APP_DIR
+
+# 2. Assigner les fichiers au bon dossier
+BANK_FILE = DATA_DIR / "banque_qcm_securite_simdut_env_A25.json"
+BACKUP_DIR = DATA_DIR / "backups"
+CSV_FILE  = DATA_DIR / "resultats_qcm.csv"
+
+# 3. Initialiser le disque persistant
+# Si le disque est vide (premier déploiement), on y copie la banque de questions initiale 
+# qui se trouve dans les fichiers de votre code source (sur Github/Gitlab).
+INITIAL_BANK = APP_DIR / "banque_qcm_securite_simdut_env_A25.json"
+if not BANK_FILE.exists() and INITIAL_BANK.exists():
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(INITIAL_BANK, BANK_FILE)
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY", "change-me-please")
