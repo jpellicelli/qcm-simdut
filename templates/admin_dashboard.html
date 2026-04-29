@@ -5,19 +5,31 @@
 <style>body{max-width:1150px;margin:2rem auto} table{width:100%}</style></head><body>
 <h3>Tableau de bord — Résultats (rafraîchit toutes les 10 s)</h3>
 <p>
-  <a href="{{url_for('admin_export')}}" class="button button-outline">Télécharger le CSV</a>
+  <a href="{{url_for('admin_export')}}" class="button button-outline export-link">Télécharger le CSV</a>
   <a href="{{url_for('admin_bank')}}" class="button">Éditer la banque</a>
   <a href="{{url_for('admin_logout')}}" class="button">Se déconnecter</a>
 </p>
-<p><strong>Soumissions :</strong> {{total_sub}} — <strong>Moyenne :</strong> {{avg}}%</p>
-<table>
-  <thead><tr><th>Horodatage</th><th>Nom</th><th>Matricule</th><th>Score</th><th>Total</th><th>%</th></tr></thead>
+
+<div style="margin-bottom: 15px;">
+  <label style="display:inline; font-weight:600;">Filtrer par groupe :</label>
+  <select id="groupe-filter" style="display:inline-block; width:auto; margin-left:10px;">
+    <option value="">Tous les groupes</option>
+    {% for g in groupes_existants %}
+    <option value="{{ g }}">{{ g }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<p><strong>Soumissions affichées :</strong> <span id="visible-count">{{total_sub}}</span> / {{total_sub}} — <strong>Moyenne globale :</strong> {{avg}}%</p>
+<table id="results-table">
+  <thead><tr><th>Horodatage</th><th>Nom</th><th>Matricule</th><th>Groupe</th><th>Score</th><th>Total</th><th>%</th></tr></thead>
   <tbody>
   {% for r in rows %}
     <tr>
       <td>{{r["timestamp"]}}</td>
       <td>{{r["nom"]}}</td>
       <td>{{r["matricule"]}}</td>
+      <td>{{r["groupe"]}}</td>
       <td>{{r["score"]}}</td>
       <td>{{r["total"]}}</td>
       <td>{{r["percent"]}}%</td>
@@ -27,8 +39,52 @@
 </table>
 <p><a href="{{url_for('index')}}">Aller au quiz</a></p>
 <div style="margin: 20px 0;">
-    <a href="{{ url_for('admin_export') }}" style="background-color: #28a745; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+    <a href="{{ url_for('admin_export') }}" class="export-link" style="background-color: #28a745; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">
         📥 Télécharger les résultats (CSV)
     </a>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var filterSelect = document.getElementById("groupe-filter");
+    var savedGroup = sessionStorage.getItem("selectedGroup");
+    if (savedGroup) {
+        filterSelect.value = savedGroup;
+    }
+    
+    function filterTable() {
+        var filter = filterSelect.value.toUpperCase();
+        var table = document.getElementById("results-table");
+        var tr = table.getElementsByTagName("tr");
+        var visibleCount = 0;
+        for (var i = 1; i < tr.length; i++) {
+            var td = tr[i].getElementsByTagName("td")[3]; // Colonne "Groupe"
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (filter === "" || txtValue.toUpperCase() === filter) {
+                    tr[i].style.display = "";
+                    visibleCount++;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        var countSpan = document.getElementById("visible-count");
+        if (countSpan) countSpan.innerText = visibleCount;
+        
+        // Mettre à jour les liens d'export pour inclure le groupe filtré
+        var exportLinks = document.querySelectorAll(".export-link");
+        var baseUrl = "{{ url_for('admin_export') }}";
+        exportLinks.forEach(function(link) {
+            link.href = filterSelect.value ? baseUrl + "?groupe=" + encodeURIComponent(filterSelect.value) : baseUrl;
+        });
+    }
+
+    filterTable();
+
+    filterSelect.addEventListener("change", function() {
+        sessionStorage.setItem("selectedGroup", this.value);
+        filterTable();
+    });
+});
+</script>
 </body></html>

@@ -12,6 +12,7 @@
 <form action="{{url_for('start')}}" method="post">
   <label>Nom</label><input name="nom" required>
   <label>Matricule</label><input name="matricule" required>
+  <label>Groupe</label><input name="groupe" required>
   <button type="submit" class="button">Commencer</button>
 </form>
 <p style="margin-top:12px"><a href="{{url_for('admin_login')}}">Espace enseignant</a></p>
