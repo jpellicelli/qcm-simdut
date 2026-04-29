@@ -22,12 +22,11 @@
 
 <p><strong>Soumissions affichées :</strong> <span id="visible-count">{{total_sub}}</span> / {{total_sub}} — <strong>Moyenne globale :</strong> {{avg}}%</p>
 <table id="results-table">
-  <thead><tr><th>Horodatage</th><th>Nom</th><th>Matricule</th><th>Groupe</th><th>Score</th><th>Total</th><th>%</th></tr></thead>
+  <thead><tr><th>Horodatage</th><th>Matricule</th><th>Groupe</th><th>Score</th><th>Total</th><th>%</th></tr></thead>
   <tbody>
   {% for r in rows %}
     <tr>
       <td>{{r["timestamp"]}}</td>
-      <td>{{r["nom"]}}</td>
       <td>{{r["matricule"]}}</td>
       <td>{{r["groupe"]}}</td>
       <td>{{r["score"]}}</td>
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var tr = table.getElementsByTagName("tr");
         var visibleCount = 0;
         for (var i = 1; i < tr.length; i++) {
-            var td = tr[i].getElementsByTagName("td")[3]; // Colonne "Groupe"
+            var td = tr[i].getElementsByTagName("td")[2]; // Colonne "Groupe"
             if (td) {
                 var txtValue = td.textContent || td.innerText;
                 if (filter === "" || txtValue.toUpperCase() === filter) {

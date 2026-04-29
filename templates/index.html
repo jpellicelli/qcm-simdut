@@ -10,7 +10,6 @@
 <h2>QCM Sécurité / SIMDUT / Environnement</h2>
 {% with messages = get_flashed_messages() %}{% if messages %}<div>{% for m in messages %}<p style="color:red">{{m}}</p>{% endfor %}</div>{% endif %}{% endwith %}
 <form action="{{url_for('start')}}" method="post">
-  <label>Nom</label><input name="nom" required>
   <label>Matricule</label><input name="matricule" required>
   <label>Groupe</label><input name="groupe" required>
   <button type="submit" class="button">Commencer</button>
