@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, json, random, csv, datetime, shutil
+import os, json, random, csv, datetime, shutil, io
 from pathlib import Path
 from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash
 
@@ -102,8 +102,9 @@ def index():
 def start():
     nom = request.form.get("nom","").strip()
     matricule = request.form.get("matricule","").strip()
-    if not nom or not matricule:
-        flash("Veuillez entrer votre nom et votre matricule.")
+    groupe = request.form.get("groupe","").strip()
+    if not nom or not matricule or not groupe:
+        flash("Veuillez entrer votre nom, votre matricule et votre groupe.")
         return redirect(url_for("index"))
 
     bank = load_bank()
@@ -127,7 +128,7 @@ def start():
             "visible": visible, "answer": q["answer"], "rationale": q.get("rationale","")
         })
 
-    session["student"] = {"nom": nom, "matricule": matricule}
+    session["student"] = {"nom": nom, "matricule": matricule, "groupe": groupe}
     session["quiz"] = qpack
     return render_template("quiz.html", student=session["student"], questions=qpack)
 
@@ -159,9 +160,9 @@ def submit():
     new = not Path(CSV_FILE).exists()
     with open(CSV_FILE, "a", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        if new: w.writerow(["timestamp","nom","matricule","score","total","percent","details_json"])
+        if new: w.writerow(["timestamp","nom","matricule","groupe","score","total","percent","details_json"])
         w.writerow([datetime.datetime.now().isoformat(timespec="seconds"),
-                    student["nom"], student["matricule"],
+                    student["nom"], student["matricule"], student.get("groupe", ""),
                     score, total, percent,
                     json.dumps(details, ensure_ascii=False)])
 
@@ -202,10 +203,12 @@ def admin_dashboard():
     total_sub = len(rows)
     avg = round(sum(float(r["percent"]) for r in rows) / total_sub, 1) if total_sub else 0.0
 
-    return render_template("admin_dashboard.html", rows=rows, total_sub=total_sub, avg=avg)
+    groupes_existants = sorted(list({r.get("groupe") for r in rows if r.get("groupe")}))
+
+    return render_template("admin_dashboard.html", rows=rows, total_sub=total_sub, avg=avg, groupes_existants=groupes_existants)
 
 
-@app.route("/admin/export")
+@app.route("/admin/export", methods=["GET", "POST"])
 def admin_export():
     if not require_admin():
         flash("Authentification requise.")
@@ -213,7 +216,24 @@ def admin_export():
     if not Path(CSV_FILE).exists():
         flash("Aucun résultat pour le moment.")
         return redirect(url_for("admin_dashboard"))
-    return send_file(CSV_FILE, as_attachment=True, download_name="resultats_qcm.csv")
+
+    groupes_selectionnes = request.values.getlist("groupe")
+    if not groupes_selectionnes:
+        return send_file(CSV_FILE, as_attachment=True, download_name="resultats_qcm.csv")
+
+    output = io.StringIO()
+    with open(CSV_FILE, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        writer = csv.DictWriter(output, fieldnames=reader.fieldnames)
+        writer.writeheader()
+        for row in reader:
+            if row.get("groupe") in groupes_selectionnes:
+                writer.writerow(row)
+
+    mem = io.BytesIO()
+    mem.write(output.getvalue().encode('utf-8'))
+    mem.seek(0)
+    return send_file(mem, as_attachment=True, download_name="resultats_qcm_filtres.csv", mimetype="text/csv")
 
 
 @app.route("/admin/bank")
