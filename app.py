@@ -100,11 +100,10 @@ def index():
 
 @app.route("/start", methods=["POST"])
 def start():
-    nom = request.form.get("nom","").strip()
     matricule = request.form.get("matricule","").strip()
     groupe = request.form.get("groupe","").strip()
-    if not nom or not matricule or not groupe:
-        flash("Veuillez entrer votre nom, votre matricule et votre groupe.")
+    if not matricule or not groupe:
+        flash("Veuillez entrer votre matricule et votre groupe.")
         return redirect(url_for("index"))
 
     bank = load_bank()
@@ -128,7 +127,7 @@ def start():
             "visible": visible, "answer": q["answer"], "rationale": q.get("rationale","")
         })
 
-    session["student"] = {"nom": nom, "matricule": matricule, "groupe": groupe}
+    session["student"] = {"matricule": matricule, "groupe": groupe}
     session["quiz"] = qpack
     return render_template("quiz.html", student=session["student"], questions=qpack)
 
@@ -160,9 +159,9 @@ def submit():
     new = not Path(CSV_FILE).exists()
     with open(CSV_FILE, "a", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        if new: w.writerow(["timestamp","nom","matricule","groupe","score","total","percent","details_json"])
+        if new: w.writerow(["timestamp","matricule","groupe","score","total","percent","details_json"])
         w.writerow([datetime.datetime.now().isoformat(timespec="seconds"),
-                    student["nom"], student["matricule"], student.get("groupe", ""),
+                    student["matricule"], student.get("groupe", ""),
                     score, total, percent,
                     json.dumps(details, ensure_ascii=False)])
 
