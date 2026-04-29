@@ -233,7 +233,9 @@ def admin_export():
     mem = io.BytesIO()
     mem.write(output.getvalue().encode('utf-8'))
     mem.seek(0)
-    return send_file(mem, as_attachment=True, download_name="resultats_qcm_filtres.csv", mimetype="text/csv")
+    
+    nom_fichier = f"resultats_qcm_groupe_{groupes_selectionnes[0]}.csv" if len(groupes_selectionnes) == 1 else "resultats_qcm_filtres.csv"
+    return send_file(mem, as_attachment=True, download_name=nom_fichier, mimetype="text/csv")
 
 
 @app.route("/admin/bank")
